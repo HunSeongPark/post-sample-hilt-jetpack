@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="post"
+            type="com.hunseong.postsample.data.model.Post" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardElevation="5dp"
+        android:layout_marginVertical="@dimen/card_vertical_margin"
+        app:cardCornerRadius="6dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="@{post.title}"
+            android:layout_height="wrap_content"
+            tools:text="sunt aunt facere repellat provident hello hihi"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="@dimen/card_text_horizontal_margin"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginVertical="@dimen/card_text_vertical_margin" />
+
+    </androidx.cardview.widget.CardView>
+</layout>

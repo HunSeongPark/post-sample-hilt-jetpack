@@ -4,4 +4,6 @@
     <!-- Menu -->
     <string name="post">Post</string>
     <string name="my">My</string>
+    <string name="network_error">Network Error!</string>
+    <string name="something_error">Something Error!</string>
 </resources>
