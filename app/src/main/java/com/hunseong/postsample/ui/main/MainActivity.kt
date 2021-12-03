@@ -1,11 +1,10 @@
 package com.hunseong.postsample.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.hunseong.postsample.R
 import com.hunseong.postsample.databinding.ActivityMainBinding
@@ -24,8 +23,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setBottomNavigationBar() {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_container) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.main_container) as NavHostFragment
+
         navController = navHostFragment.navController
+
         binding.bottomNav.setupWithNavController(navController)
+
+        // Bottom Navigation Bar Visibility
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.my_fragment || destination.id == R.id.post_fragment) {
+                binding.bottomNav.visibility = View.VISIBLE
+            } else {
+                binding.bottomNav.visibility = View.GONE
+            }
+        }
     }
 }
