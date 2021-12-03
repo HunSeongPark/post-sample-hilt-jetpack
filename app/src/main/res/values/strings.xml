@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PostSample</string>
+
+    <!-- Menu -->
+    <string name="post">Post</string>
+    <string name="my">My</string>
 </resources>
