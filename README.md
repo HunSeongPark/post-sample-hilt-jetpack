@@ -8,6 +8,6 @@
 - (Json Converter) Gson -> Moshi                      
 - (Navigate) _ -> Jetpack Navigation (Single Activity)                  
 
-## 추가할 기능                                
-- Room DB 활용한 게시글 및 유저 찜 기능                     
+## 추가할 기능  
+- Room DB 활용한 프로필 이름 설정, 게시글 및 유저 찜 기능                     
 - My Tab에서 ViewPager2 사용하여 찜한 게시글 및 유저 확인 기능                        
