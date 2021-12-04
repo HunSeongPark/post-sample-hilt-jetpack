@@ -1,5 +1,6 @@
 package com.hunseong.postsample.ui.post
 
+import androidx.annotation.MainThread
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hunseong.postsample.data.model.Post

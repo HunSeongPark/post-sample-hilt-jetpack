@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.constraintlayout.motion.widget.OnSwipe
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.hunseong.postsample.databinding.FragmentPostBinding
 import com.hunseong.postsample.ui.adapter.PostAdapter
@@ -20,7 +21,10 @@ class PostFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     private val viewModel: PostViewModel by viewModels()
 
     private val postAdapter: PostAdapter by lazy {
-        PostAdapter()
+        PostAdapter {
+            val directions = PostFragmentDirections.postFragmentToDetailFragment(it)
+            findNavController().navigate(directions)
+        }
     }
 
     override fun onCreateView(

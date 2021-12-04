@@ -21,6 +21,9 @@
         <action android:id="@+id/detail_fragment_to_user_fragment"
             app:destination="@id/user_fragment"/>
 
+        <argument android:name="post"
+            app:argType="com.hunseong.postsample.data.model.Post"/>
+
     </fragment>
 
     <fragment android:id="@+id/user_fragment"

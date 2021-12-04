@@ -2,7 +2,6 @@ package com.hunseong.postsample.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.DiffUtil.DiffResult.NO_POSITION
 import androidx.recyclerview.widget.ListAdapter
@@ -10,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hunseong.postsample.data.model.Post
 import com.hunseong.postsample.databinding.ItemPostBinding
 
-class PostAdapter : ListAdapter<Post, PostAdapter.ViewHolder>(postDiffUtil) {
+class PostAdapter(private val onClick: (Post) -> Unit) :
+    ListAdapter<Post, PostAdapter.ViewHolder>(postDiffUtil) {
 
     inner class ViewHolder(private val binding: ItemPostBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -18,9 +18,7 @@ class PostAdapter : ListAdapter<Post, PostAdapter.ViewHolder>(postDiffUtil) {
             binding.root.setOnClickListener {
                 val position =
                     bindingAdapterPosition.takeIf { it != NO_POSITION } ?: return@setOnClickListener
-                Toast.makeText(binding.root.context,
-                    getItem(position).toString(),
-                    Toast.LENGTH_SHORT).show()
+                onClick(getItem(position))
             }
         }
 
