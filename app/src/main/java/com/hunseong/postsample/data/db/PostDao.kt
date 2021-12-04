@@ -2,6 +2,7 @@ package com.hunseong.postsample.data.db
 
 import androidx.room.*
 import com.hunseong.postsample.data.model.Post
+import com.hunseong.postsample.data.model.User
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -15,4 +16,8 @@ interface PostDao {
 
     @Delete
     suspend fun deletePost(post: Post)
+
+    @Query("SELECT * FROM Post")
+    fun getAllPosts(): Flow<List<Post>>
+
 }

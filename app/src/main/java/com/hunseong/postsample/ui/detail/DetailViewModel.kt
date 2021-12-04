@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.hunseong.postsample.data.model.Post
 import com.hunseong.postsample.data.model.PostInfo
 import com.hunseong.postsample.data.model.Result
+import com.hunseong.postsample.data.model.User
 import com.hunseong.postsample.data.repository.DetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -28,6 +29,8 @@ class DetailViewModel @Inject constructor(
 
     val postInfo: MutableStateFlow<Result<PostInfo>> = MutableStateFlow(Result.Loading)
 
+    lateinit var user: User
+
     fun toggleLikeButton() {
         viewModelScope.launch {
             if (isLiked.value) {
@@ -41,8 +44,9 @@ class DetailViewModel @Inject constructor(
     fun loadPostInfo() {
         viewModelScope.launch {
             detailRepository.getComments(post.id)
-                .zip(detailRepository.getUser(post.userId)) { comments, user ->
-                    Result.Success(PostInfo(comments, user))
+                .zip(detailRepository.getUser(post.userId)) { comments, u ->
+                    user = u
+                    Result.Success(PostInfo(comments, u))
                 }.catch { e -> postInfo.value = Result.Error(e) }.collect {
                     postInfo.value = it
                 }

@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.hunseong.postsample.data.model.User
 import com.hunseong.postsample.databinding.FragmentDetailBinding
 import com.hunseong.postsample.ui.adapter.CommentAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,6 +35,11 @@ class DetailFragment : Fragment() {
 
             likeBtn.setOnClickListener {
                 viewModel.toggleLikeButton()
+            }
+
+            userLayout.setOnClickListener {
+                val directions = DetailFragmentDirections.detailFragmentToUserFragment(viewModel.user)
+                findNavController().navigate(directions)
             }
         }
 

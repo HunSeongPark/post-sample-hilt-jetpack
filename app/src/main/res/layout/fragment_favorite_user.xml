@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.hunseong.postsample.ui.my.FavoriteUserViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="@dimen/card_horizontal_margin"
+            android:paddingTop="@dimen/card_vertical_margin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:submitList="@{vm.users}"
+            app:toast="@{vm.users}"
+            tools:listitem="@layout/item_user" />
+
+    </FrameLayout>
+</layout>

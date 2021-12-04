@@ -54,7 +54,7 @@ object ViewBinding {
     @BindingAdapter("setLikeButton")
     fun bindSetLikeButton(view: ImageView, isLiked: Boolean) {
         val imageResource =
-            if (isLiked) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
+            if (isLiked) R.drawable.ic_like_active else R.drawable.ic_like_inactive
         view.setImageResource(imageResource)
     }
 

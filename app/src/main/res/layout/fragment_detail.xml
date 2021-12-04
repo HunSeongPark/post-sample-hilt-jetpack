@@ -37,7 +37,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:src="@drawable/ic_baseline_arrow_back_24"
+                        android:src="@drawable/ic_back"
                         app:backPressed="@{true}" />
 
                     <TextView
@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_baseline_person_24" />
+                    android:src="@drawable/ic_person_active" />
 
                 <TextView
                     app:setUserText="@{vm.postInfo}"
@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
                 android:padding="10dp"
-                android:src="@drawable/ic_baseline_favorite_border_24"
+                android:src="@drawable/ic_like_inactive"
                 app:layout_constraintBottom_toBottomOf="@id/user_layout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/user_layout"

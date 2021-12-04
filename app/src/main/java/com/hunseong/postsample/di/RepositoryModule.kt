@@ -1,10 +1,12 @@
 package com.hunseong.postsample.di
 
 import com.hunseong.postsample.data.db.PostDao
+import com.hunseong.postsample.data.db.UserDao
 import com.hunseong.postsample.data.network.CommentApiService
 import com.hunseong.postsample.data.network.PostApiService
 import com.hunseong.postsample.data.network.UserApiService
 import com.hunseong.postsample.data.repository.DetailRepository
+import com.hunseong.postsample.data.repository.FavoriteRepository
 import com.hunseong.postsample.data.repository.PostRepository
 import dagger.Module
 import dagger.Provides
@@ -30,5 +32,14 @@ object RepositoryModule {
         userApiService: UserApiService
     ): DetailRepository {
         return DetailRepository(postDao, commentApiService, userApiService)
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideFavoriteRepository(
+        postDao: PostDao,
+        userDao: UserDao
+    ): FavoriteRepository {
+        return FavoriteRepository(postDao, userDao)
     }
 }

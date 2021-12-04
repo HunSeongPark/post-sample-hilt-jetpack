@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@+id/nav_post"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/post_fragment"
     android:id="@+id/nav_graph">
 
-    <include app:graph="@navigation/nav_post"/>
-    <include app:graph="@navigation/nav_my"/>
+    <fragment android:id="@+id/post_fragment"
+        android:name="com.hunseong.postsample.ui.post.PostFragment"
+        tools:layout="@layout/fragment_post">
+
+        <action android:id="@+id/post_fragment_to_detail_fragment"
+            app:destination="@id/detail_fragment"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/my_fragment"
+        android:name="com.hunseong.postsample.ui.my.MyFragment"
+        tools:layout="@layout/fragment_my">
+
+        <action android:id="@+id/my_fragment_to_detail_fragment"
+            app:destination="@id/detail_fragment"/>
+
+        <action android:id="@+id/my_fragment_to_user_fragment"
+            app:destination="@id/user_fragment"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/detail_fragment"
+        android:name="com.hunseong.postsample.ui.detail.DetailFragment"
+        tools:layout="@layout/fragment_detail">
+
+        <argument android:name="post"
+            app:argType="com.hunseong.postsample.data.model.Post"/>
+
+        <action android:id="@+id/detail_fragment_to_user_fragment"
+            app:destination="@id/user_fragment"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/user_fragment"
+        android:name="com.hunseong.postsample.ui.user.UserFragment"
+        tools:layout="@layout/fragment_user">
+
+        <argument android:name="user"
+            app:argType="com.hunseong.postsample.data.model.User"/>
+
+    </fragment>
 
 </navigation>
