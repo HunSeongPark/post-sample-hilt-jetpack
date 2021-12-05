@@ -27,7 +27,12 @@ class DetailViewModel @Inject constructor(
             initialValue = false
         )
 
-    val postInfo: MutableStateFlow<Result<PostInfo>> = MutableStateFlow(Result.Loading)
+    val postInfo: StateFlow<Result<PostInfo>> = detailRepository.getInfo(post.id, post.userId)
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = Result.Uninitialized
+        )
 
     lateinit var user: User
 
@@ -38,18 +43,6 @@ class DetailViewModel @Inject constructor(
             } else {
                 detailRepository.insertPost(post)
             }
-        }
-    }
-
-    fun loadPostInfo() {
-        viewModelScope.launch {
-            detailRepository.getComments(post.id)
-                .zip(detailRepository.getUser(post.userId)) { comments, u ->
-                    user = u
-                    Result.Success(PostInfo(comments, u))
-                }.catch { e -> postInfo.value = Result.Error(e) }.collect {
-                    postInfo.value = it
-                }
         }
     }
 }

@@ -6,4 +6,13 @@
     <string name="my">My</string>
     <string name="network_error">Network Error!</string>
     <string name="something_error">Something Error!</string>
+
+
+    <!-- Dialog -->
+    <string name="set_profile">프로필 이름을 설정해주세요!</string>
+    <string name="my_name">내 이름</string>
+    <string name="ok">OK</string>
+
+    <!-- My -->
+    <string name="my_toolbar">%1$s \'s Favorites</string>
 </resources>

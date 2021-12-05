@@ -13,6 +13,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
+import kotlinx.coroutines.CoroutineDispatcher
 
 @InstallIn(ViewModelComponent::class)
 @Module
@@ -29,9 +30,10 @@ object RepositoryModule {
     fun provideDetailRepository(
         postDao: PostDao,
         commentApiService: CommentApiService,
-        userApiService: UserApiService
+        userApiService: UserApiService,
+        ioDispatcher: CoroutineDispatcher
     ): DetailRepository {
-        return DetailRepository(postDao, commentApiService, userApiService)
+        return DetailRepository(postDao, commentApiService, userApiService, ioDispatcher)
     }
 
     @Provides

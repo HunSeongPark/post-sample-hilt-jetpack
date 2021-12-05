@@ -43,8 +43,6 @@ class DetailFragment : Fragment() {
             }
         }
 
-        viewModel.loadPostInfo()
-
         return binding.root
     }
 }

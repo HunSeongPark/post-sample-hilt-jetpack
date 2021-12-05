@@ -1,6 +1,7 @@
 package com.hunseong.postsample.data.network
 
 import com.hunseong.postsample.data.model.User
+import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 import retrofit2.http.Path
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 다이얼로그 배경 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
+    <item>
+        <!-- 사각형 지정 -->
+        <shape android:shape="rectangle">
+            <corners android:radius="30dp" />
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+</layer-list>

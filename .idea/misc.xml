@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/dialog_edittext_background.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/drawable/dialog_profile.xml" value="0.13854166666666667" />
+        <entry key="app/src/main/res/drawable/dialog_radius_background.xml" value="0.13854166666666667" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/drawable/ic_person_active.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/drawable/my_tab_selector.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/drawable/post_tab_selector.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3359375" />
+        <entry key="app/src/main/res/layout/dialog_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.228" />
         <entry key="app/src/main/res/layout/fragment_favorite_post.xml" value="0.2421875" />
         <entry key="app/src/main/res/layout/fragment_favorite_user.xml" value="0.2421875" />

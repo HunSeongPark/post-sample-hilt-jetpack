@@ -7,16 +7,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.hunseong.postsample.R
+import com.hunseong.postsample.data.preferences.SharedPreferencesManager
 import com.hunseong.postsample.databinding.FragmentMyBinding
 import com.hunseong.postsample.ui.adapter.MyPagerAdapter
 import com.hunseong.postsample.ui.adapter.MyPagerAdapter.Companion.POST_PAGE_INDEX
 import com.hunseong.postsample.ui.adapter.MyPagerAdapter.Companion.USER_PAGE_INDEX
+import com.hunseong.postsample.ui.post.PostViewModel.Companion.USER_NAME_KEY
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MyFragment : Fragment() {
 
     private lateinit var binding: FragmentMyBinding
+
+    @Inject
+    lateinit var preferencesManager: SharedPreferencesManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,6 +30,7 @@ class MyFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentMyBinding.inflate(inflater, container, false).apply {
+            name = getString(R.string.my_toolbar, preferencesManager.getName(USER_NAME_KEY))
             pager.adapter = MyPagerAdapter(this@MyFragment)
         }
 
