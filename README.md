@@ -10,4 +10,7 @@
 
 ## 추가된 기능  
 - (Custom Dialog) Shared Preferences 활용한 프로필 이름 설정, 게시글 및 유저 찜 기능                     
-- My Tab에서 ViewPager2 사용하여 찜한 게시글 및 유저 확인 기능                        
+- My Tab에서 ViewPager2 사용하여 찜한 게시글 및 유저 확인 기능                              
+
+## 추가로 학습하게 된 것                             
+- [Flow block 내에서 여러 개의 suspend function에 대한 비동기 처리](https://hungseong.tistory.com/32) 
