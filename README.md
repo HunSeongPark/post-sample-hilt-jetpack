@@ -14,4 +14,5 @@
 
 ## 추가로 학습하게 된 것                             
 - [Flow block 내에서 여러 개의 suspend function에 대한 비동기 처리](https://hungseong.tistory.com/32)                        
-- [Room DB에서 Flow를 사용하여 DB 변경 observing](https://hungseong.tistory.com/33)                        
+- [Room DB에서 Flow를 사용하여 DB 변경 observing](https://hungseong.tistory.com/33)                      
+- [Custom Dialog](https://hungseong.tistory.com/34)                                                  
