@@ -11,6 +11,7 @@ import com.hunseong.postsample.data.repository.DetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,8 +34,6 @@ class DetailViewModel @Inject constructor(
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = Result.Uninitialized
         )
-
-    lateinit var user: User
 
     fun toggleLikeButton() {
         viewModelScope.launch {

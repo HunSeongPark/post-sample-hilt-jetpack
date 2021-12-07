@@ -17,14 +17,17 @@ class FavoriteRepository @Inject constructor(
     fun getAllPosts() = flow {
         emit(Result.Loading)
         postDao.getAllPosts().collect {
-            Timber.tag("wtf").d("post change")
-            if (it.isEmpty()) {
-                emit(Result.Empty)
-            } else {
-                emit(Result.Success(it))
+                Timber.tag("likedPost").d("Liked post change")
+                if (it.isEmpty()) {
+                    emit(Result.Empty)
+                } else {
+                    emit(Result.Success(it))
+                }
             }
-        }
-    }.catch { e -> emit(Result.Error(e)) }
+    }.catch { e ->
+        emit(Result.Error(e))
+        Timber.tag("wtf").d(e)
+    }
 
     fun getAllUsers() = flow {
         emit(Result.Loading)

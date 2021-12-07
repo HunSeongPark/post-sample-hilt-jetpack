@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.hunseong.postsample.data.model.PostInfo
+import com.hunseong.postsample.data.model.Result
 import com.hunseong.postsample.data.model.User
 import com.hunseong.postsample.databinding.FragmentDetailBinding
 import com.hunseong.postsample.ui.adapter.CommentAdapter
@@ -38,7 +40,8 @@ class DetailFragment : Fragment() {
             }
 
             userLayout.setOnClickListener {
-                val directions = DetailFragmentDirections.detailFragmentToUserFragment(viewModel.user)
+                val user = (viewModel.postInfo.value as Result.Success<PostInfo>).data.user
+                val directions = DetailFragmentDirections.detailFragmentToUserFragment(user)
                 findNavController().navigate(directions)
             }
         }

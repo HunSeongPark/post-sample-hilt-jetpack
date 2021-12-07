@@ -24,14 +24,23 @@ class DetailRepository @Inject constructor(
     fun getPostExist(id: Long) = postDao.getPostExist(id)
 
     fun getInfo(postId: Long, userId: Long) = flow {
+        val start = System.currentTimeMillis()
         emit(Result.Loading)
+        // 새로운 CoroutineScope에서 나온 결과를 wrapping 할 PostInfo 객체
         var postInfo: PostInfo
+
+        // ioDispatcher : DI(Hilt)를 통해 외부에서 주입받은 Dispatchers.IO
+        // Dispatchers.IO context를 사용하는 새로운 CoroutineScope 생성
         withContext(ioDispatcher) {
+            // async를 통해 두 api 통신을 비동기적으로 수행
             val comments = async { commentApiService.getComments(postId) }
             val user = async { userApiService.getUser(userId) }
+
+            // await을 통해 두 결과가 모두 나왔을 때 postInfo에 해당 값 저장
             postInfo = PostInfo(comments.await(), user.await())
         }
         emit(Result.Success(postInfo))
+        Timber.tag("timeLog").d("${System.currentTimeMillis() - start}")
     }.catch { e -> Result.Error(e) }
 
     suspend fun insertPost(post: Post) = postDao.insertPost(post)
