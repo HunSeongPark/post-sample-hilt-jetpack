@@ -1,7 +1,7 @@
 # post-sample-hilt-jetpack                      
 기존 [post-sample Repository](https://github.com/HunSeongPark/post-sample)에서 새로 학습한 부분 도입                   
          
-<img src="https://user-images.githubusercontent.com/71416677/144974141-19ca8351-a04d-4894-a327-e293a41dff60.gif" width="250" height="400"/><img src="https://user-images.githubusercontent.com/71416677/144974184-6711a6a1-3d20-4930-971f-fd246ab08ae9.gif" width="250" height="400"/>                   
+<img src="https://user-images.githubusercontent.com/71416677/144974141-19ca8351-a04d-4894-a327-e293a41dff60.gif" width="250" height="400"/>   <img src="https://user-images.githubusercontent.com/71416677/144974184-6711a6a1-3d20-4930-971f-fd246ab08ae9.gif" width="250" height="400"/>                   
 
 ## 기존 코드 변경                     
 - (Observe) LiveData -> Flow / StateFlow                        
