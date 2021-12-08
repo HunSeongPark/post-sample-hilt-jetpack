@@ -1,7 +1,6 @@
 package com.hunseong.postsample.data.repository
 
 import com.hunseong.postsample.data.db.UserDao
-import com.hunseong.postsample.data.model.Post
 import com.hunseong.postsample.data.model.User
 import javax.inject.Inject
 

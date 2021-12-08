@@ -10,7 +10,6 @@ import com.hunseong.postsample.data.model.User
 import com.hunseong.postsample.ui.adapter.CommentAdapter
 import com.hunseong.postsample.ui.adapter.PostAdapter
 import com.hunseong.postsample.ui.adapter.UserAdapter
-import timber.log.Timber
 
 object RecyclerViewBinding {
 

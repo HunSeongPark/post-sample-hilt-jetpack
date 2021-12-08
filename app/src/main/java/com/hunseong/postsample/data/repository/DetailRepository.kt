@@ -11,7 +11,6 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.withContext
-import timber.log.Timber
 import javax.inject.Inject
 
 class DetailRepository @Inject constructor(
@@ -24,7 +23,6 @@ class DetailRepository @Inject constructor(
     fun getPostExist(id: Long) = postDao.getPostExist(id)
 
     fun getInfo(postId: Long, userId: Long) = flow {
-        val start = System.currentTimeMillis()
         emit(Result.Loading)
         // 새로운 CoroutineScope에서 나온 결과를 wrapping 할 PostInfo 객체
         var postInfo: PostInfo
@@ -40,7 +38,6 @@ class DetailRepository @Inject constructor(
             postInfo = PostInfo(comments.await(), user.await())
         }
         emit(Result.Success(postInfo))
-        Timber.tag("timeLog").d("${System.currentTimeMillis() - start}")
     }.catch { e -> Result.Error(e) }
 
     suspend fun insertPost(post: Post) = postDao.insertPost(post)

@@ -2,7 +2,6 @@ package com.hunseong.postsample.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.hunseong.postsample.data.preferences.PreferencesManager
 import com.hunseong.postsample.data.preferences.SharedPreferencesManager
 import dagger.Module
 import dagger.Provides

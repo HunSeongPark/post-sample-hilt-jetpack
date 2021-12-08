@@ -1,7 +1,6 @@
 package com.hunseong.postsample.data.db
 
 import androidx.room.*
-import com.hunseong.postsample.data.model.Post
 import com.hunseong.postsample.data.model.User
 import kotlinx.coroutines.flow.Flow
 

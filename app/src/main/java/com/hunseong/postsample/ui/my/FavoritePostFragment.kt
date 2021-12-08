@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.hunseong.postsample.databinding.FragmentFavoritePostBinding
 import com.hunseong.postsample.ui.adapter.PostAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class FavoritePostFragment : Fragment() {

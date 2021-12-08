@@ -7,7 +7,6 @@ import com.hunseong.postsample.data.model.Result
 import com.hunseong.postsample.data.repository.FavoriteRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
